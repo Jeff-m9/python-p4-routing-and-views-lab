@@ -19,7 +19,7 @@ def print_string(parameter):
 @app.route("/count/<int:parameter>")
 def count(parameter):
     numbers ="\n".join(str(i) for i in range(parameter)) + "\n"
-    return numbers, 200, {"Content-Type": "text/plain"}
+    return numbers
 
 @app.route("/math/<int:num1>/<operation>/<int:num2>")
 def math(num1,operation,num2):
@@ -34,6 +34,6 @@ def math(num1,operation,num2):
     elif operation == "%":
         result = num1 % num2
     else:
-        return "Error: Invalid operation", 400
+        return "Error: Invalid operation"
 
-    return str(result), 200, {"Content-Type": "text/plain"}
+    return str(result)
